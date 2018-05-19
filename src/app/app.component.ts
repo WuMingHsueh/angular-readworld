@@ -2,6 +2,7 @@ import { ArticleService } from './article.service';
 import { Component, OnInit } from '@angular/core';
 import { isNull } from '@angular/compiler/src/output/output_ast';
 import { Observable } from 'rxjs';
+import { Article } from './articles/article';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent implements OnInit {
   logoFont = 'conduit';
   smallTitle = 'A place to share your <u>knowledge.</u>';
 
-  articleList$: Observable<any[]>;
+  articleList$: Observable<Article[]>;
   keyword: string = '';
 
   constructor(private articleService: ArticleService) { }

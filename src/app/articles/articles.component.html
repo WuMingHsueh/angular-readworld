@@ -55,7 +55,8 @@
   </a>
 </div> -->
 
-<div class="post-preview" *ngFor="let article of list">
+<div class="post-preview" *ngFor="let article of list | filterArticle:keyword">
+
   <div class="post-meta">
     <a href="profile.html">
       <img [src]="article.author.image" />
@@ -63,7 +64,7 @@
     <div class="info">
       <a href="profile.html" class="author">{{ article.author.bio }}</a>
 
-      <span class="date">{{ article.createdAt }}</span>
+      <span class="date">{{ article.createdAt | date:'yyyy-MM-dd' }}</span>
 
 
     </div>

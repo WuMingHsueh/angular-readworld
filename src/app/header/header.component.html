@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light">
   <div class="container">
-    <a [ngClass]="{'navbar-brand' :counter % 2 == 0, 'hightLight': counter % 2 == 1}" [ngStyle]="{'font-size': (counter + 12) + 'px'}"
+    <a [ngClass]="{'navbar-brand' :counter % 2 == 0, 'hightLight': counter % 2 == 1}" [ngStyle]="{'font-size': (counter + 1 ) + 'em' }"
       href="index.html">{{ homeLogo }}</a>
 
 
@@ -8,9 +8,11 @@
     <button class="btn btn-sm btn-primary" (click)="search()">
       <i class="ion-search"></i>
     </button>
-    {{ searchInputValue }}
-    <span class="hightLight" *ngIf="!searchInputValue">請輸入文字</span>
 
+    <span class="hightLight" *ngIf="!searchInputValue ; else searchTemplate;">請輸入文字</span>
+    <ng-template #searchTemplate>
+      您所輸入的文字為：{{ searchInputValue }}
+    </ng-template>
 
     <ul class="nav navbar-nav pull-xs-right">
       <li class="nav-item">
